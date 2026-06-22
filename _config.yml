@@ -1,0 +1,28 @@
+title: Vivek Subramanian
+tagline: Notes on LLM post-training, fine-tuning, and applied ML
+description: >-
+  Practitioner's notes on supervised fine-tuning, distillation, long-context
+  post-training, and shipping ML to production.
+author: Vivek Subramanian
+email: 7951895+vman049@users.noreply.github.com
+url: "https://vman049.github.io"
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+minima:
+  social_links:
+    github: vman049
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
