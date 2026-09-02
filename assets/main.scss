@@ -1,29 +1,20 @@
 ---
 # Front matter is required for Jekyll to compile this file.
-# Shadows minima's own assets/main.scss, then layers theming on top.
+# Shadows minima's own assets/main.scss, then recolours it for dark mode.
 ---
 
 @import "minima";
 
 /* ------------------------------------------------------------------ *
- * Theme tokens. Light is the default; [data-theme="dark"] on <html>
- * swaps them. The attribute is set before first paint in head.html.
+ * Dark palette. minima 2.5.1 hard-codes its colours, so rather than
+ * patch each rule we restate them once here as custom properties and
+ * apply them below.
  * ------------------------------------------------------------------ */
 :root {
-  color-scheme: light;
-  --bg:            #fdfdfd;
-  --text:          #111111;
-  --brand:         #2a7ae2;
-  --brand-visited: #1756a9;
-  --grey:          #828282;
-  --grey-light:    #e8e8e8;
-  --grey-dark:     #424242;
-  --code-bg:       #eeeeff;
-  --border:        #e8e8e8;
-}
-
-html[data-theme="dark"] {
+  /* Tells the browser to render form controls, scrollbars and the
+     canvas behind the page in dark, so nothing flashes white. */
   color-scheme: dark;
+
   --bg:            #16181d;
   --text:          #e4e6ea;
   --brand:         #79b0ff;
@@ -35,8 +26,8 @@ html[data-theme="dark"] {
   --border:        #2a2e36;
 }
 
-/* ---- apply tokens over minima's hard-coded colours ---- */
-body                       { background-color: var(--bg); color: var(--text); }
+html, body                 { background-color: var(--bg); }
+body                       { color: var(--text); }
 a                          { color: var(--brand); }
 a:visited                  { color: var(--brand-visited); }
 a:hover                    { color: var(--text); }
@@ -74,35 +65,3 @@ table th                   { background-color: var(--grey-light);
                              color: var(--text); }
 table td                   { border-color: var(--border); }
 table tr:nth-child(even)   { background-color: var(--grey-light); }
-
-/* ---- the toggle itself ---- */
-.theme-toggle {
-  float: right;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  margin: 6px 0 0 14px;
-  padding: 0;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--grey-dark);
-  cursor: pointer;
-  line-height: 0;
-}
-
-.theme-toggle:hover        { border-color: var(--grey); color: var(--text); }
-.theme-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
-
-/* Show exactly one icon per theme — CSS only, so it never flashes. */
-.theme-toggle .icon-sun    { display: none; }
-html[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
-html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-
-/* On narrow screens minima absolutely-positions the hamburger at the
-   top-right, so keep the toggle clear of it. */
-@include media-query($on-palm) {
-  .theme-toggle { margin-right: 46px; }
-}

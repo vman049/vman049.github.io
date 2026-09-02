@@ -4,7 +4,7 @@ description: >-
   Practitioner's notes on supervised fine-tuning, distillation, long-context
   post-training, and shipping ML to production.
 author: Vivek Subramanian
-email: vman049@gmail.com
+email: vivek.subramanian.ml@gmail.com
 url: "https://vman049.github.io"
 
 theme: minima
