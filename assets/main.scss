@@ -1,0 +1,108 @@
+---
+# Front matter is required for Jekyll to compile this file.
+# Shadows minima's own assets/main.scss, then layers theming on top.
+---
+
+@import "minima";
+
+/* ------------------------------------------------------------------ *
+ * Theme tokens. Light is the default; [data-theme="dark"] on <html>
+ * swaps them. The attribute is set before first paint in head.html.
+ * ------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+  --bg:            #fdfdfd;
+  --text:          #111111;
+  --brand:         #2a7ae2;
+  --brand-visited: #1756a9;
+  --grey:          #828282;
+  --grey-light:    #e8e8e8;
+  --grey-dark:     #424242;
+  --code-bg:       #eeeeff;
+  --border:        #e8e8e8;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:            #16181d;
+  --text:          #e4e6ea;
+  --brand:         #79b0ff;
+  --brand-visited: #a9ccff;
+  --grey:          #9aa1ab;
+  --grey-light:    #2a2e36;
+  --grey-dark:     #c2c8d0;
+  --code-bg:       #1f232b;
+  --border:        #2a2e36;
+}
+
+/* ---- apply tokens over minima's hard-coded colours ---- */
+body                       { background-color: var(--bg); color: var(--text); }
+a                          { color: var(--brand); }
+a:visited                  { color: var(--brand-visited); }
+a:hover                    { color: var(--text); }
+
+.site-header               { background-color: var(--bg);
+                             border-top-color: var(--grey-dark);
+                             border-bottom-color: var(--border); }
+.site-title,
+.site-title:visited        { color: var(--grey-dark); }
+.site-nav                  { background-color: var(--bg); border-color: var(--border); }
+.site-nav .page-link       { color: var(--text); }
+.site-nav .menu-icon > svg path { fill: var(--grey-dark); }
+
+.site-footer               { border-top-color: var(--border); }
+.footer-heading            { color: var(--text); }
+.footer-col-wrapper,
+.contact-list,
+.social-media-list         { color: var(--grey); }
+.svg-icon                  { fill: var(--grey); }
+
+.page-heading,
+.post-title,
+.post-link                 { color: var(--text); }
+.post-meta                 { color: var(--grey); }
+
+blockquote                 { color: var(--grey); border-left-color: var(--grey-light); }
+pre, code                  { background-color: var(--code-bg);
+                             border-color: var(--border);
+                             color: var(--text); }
+hr                         { border-color: var(--border); }
+
+table                      { color: var(--grey-dark); border-color: var(--border); }
+table th                   { background-color: var(--grey-light);
+                             border-color: var(--border);
+                             color: var(--text); }
+table td                   { border-color: var(--border); }
+table tr:nth-child(even)   { background-color: var(--grey-light); }
+
+/* ---- the toggle itself ---- */
+.theme-toggle {
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin: 6px 0 0 14px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--grey-dark);
+  cursor: pointer;
+  line-height: 0;
+}
+
+.theme-toggle:hover        { border-color: var(--grey); color: var(--text); }
+.theme-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* Show exactly one icon per theme — CSS only, so it never flashes. */
+.theme-toggle .icon-sun    { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* On narrow screens minima absolutely-positions the hamburger at the
+   top-right, so keep the toggle clear of it. */
+@include media-query($on-palm) {
+  .theme-toggle { margin-right: 46px; }
+}

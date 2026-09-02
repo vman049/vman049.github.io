@@ -4,7 +4,7 @@ description: >-
   Practitioner's notes on supervised fine-tuning, distillation, long-context
   post-training, and shipping ML to production.
 author: Vivek Subramanian
-email: 7951895+vman049@users.noreply.github.com
+email: vman049@gmail.com
 url: "https://vman049.github.io"
 
 theme: minima
@@ -12,10 +12,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# GitHub Pages pins minima 2.5.1, which reads these as top-level keys.
+github_username: vman049
+
 minima:
   date_format: "%b %-d, %Y"
-  social_links:
-    github: vman049
 
 # Order of the links in the top nav.
 header_pages:
