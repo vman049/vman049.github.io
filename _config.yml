@@ -13,8 +13,14 @@ plugins:
   - jekyll-seo-tag
 
 minima:
+  date_format: "%b %-d, %Y"
   social_links:
     github: vman049
+
+# Order of the links in the top nav.
+header_pages:
+  - about.md
+  - resume.md
 
 # Build settings
 markdown: kramdown
@@ -26,3 +32,5 @@ exclude:
   - Gemfile.lock
   - README.md
   - vendor
+  - "*.docx"
+  - "~$*"

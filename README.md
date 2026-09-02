@@ -25,3 +25,27 @@ bundle install
 bundle exec jekyll serve --drafts
 # http://localhost:4000
 ```
+
+## Adding a monthly entry
+
+1. Create `_posts/YYYY-MM-DD-slug.md` (the date in the filename is required).
+2. Front matter at the top:
+
+   ```yaml
+   ---
+   layout: post
+   title: "Your title"
+   ---
+   ```
+
+3. Write Markdown below it.
+4. `git add . && git commit -m "post: your title" && git push`
+
+The site rebuilds automatically within a minute. Work-in-progress lives in
+`_drafts/` and is not published until moved into `_posts/` with a dated filename.
+
+## Pages
+
+- `about.md` — About
+- `resume.md` — Resume (drop a PDF at `assets/files/resume.pdf` for the download link)
+- `_config.yml` — title, tagline, nav order, social links
